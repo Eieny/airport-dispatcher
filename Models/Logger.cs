@@ -19,16 +19,10 @@ namespace AutoDispatcher
             string fileName = "log.txt";
             string directoryName = "log";
 
-            if (Directory.Exists(directoryName))
-            {
-                writer = new StreamWriter($@"{directoryName}/{fileName}", append: true);
-            }
-            else
-            {
+            if (!Directory.Exists(directoryName))
                 Directory.CreateDirectory(directoryName);
-                File.Create($@"{directoryName}/{fileName}");
-            }
 
+            writer = new StreamWriter($@"{directoryName}/{fileName}", append: true);
             writer.WriteLine(text);
             writer.Close();
         }
