@@ -19,7 +19,6 @@ namespace AutoDispatcher
 
         List<Airplane> landingAirplanes = new List<Airplane>();
         List<Airplane> crashAirplanes = new List<Airplane>();
-        //ObservableCollection<Airplane> airplanesSet = new ObservableCollection<Airplane>();
 
         public bool firstInFirstOut { get; set; }
         public bool fuelRunout { get; set; } = true;
@@ -30,9 +29,11 @@ namespace AutoDispatcher
         public ObservableCollection<Airplane> airplanesSet { get; set; }
 
 
-        ///Команда для отрытия нового окна
+        /// <summary>
+        /// Команда для отрытия окна со списком самолётов
+        /// </summary>
         public ICommand AddAirplanesCommand { get; set; }
-        private void ShowView()
+        private void ShowAddView()
         {
             AddAirplanesVM view = new AddAirplanesVM()
             {
@@ -45,7 +46,8 @@ namespace AutoDispatcher
         public Airport()
         {
             //Инициализация команды
-            AddAirplanesCommand = new SimpleCommand(ShowView);
+            AddAirplanesCommand = new SimpleCommand(ShowAddView);
+
             AirplanesInit();
 
             DispatcherTimer timer = new DispatcherTimer();
@@ -88,7 +90,7 @@ namespace AutoDispatcher
             {
                 new Airplane(3000, 50, "3Xtrim", 1, new TimeSpan(0, 0, 20)),
                 new Airplane(3001, 10, "Gloster", 2, new TimeSpan(0, 0, 10)),
-                new Airplane(500, 1, "Fuji2", 3, new TimeSpan(0, 0, 15)),
+                new Airplane(500, 1, "Fuji", 3, new TimeSpan(0, 0, 15)),
                 new Airplane(3000, 15, "3Xtrim", 4, new TimeSpan(0, 0, 25)),
                 new Airplane(3000, 20, "Folland", 5, new TimeSpan(0, 0, 50)),
                 new Airplane(6000, 30, "Eclipse", 6, new TimeSpan(0, 0, 10)),
@@ -98,22 +100,22 @@ namespace AutoDispatcher
 
             airplanesSet = new ObservableCollection<Airplane>()
             {
-                new Airplane(3000, 50, "3Xtrim", 9, new TimeSpan(0, 0, 20)),
-                new Airplane(3001, 10, "Gloster‎", 10, new TimeSpan(0, 0, 10)),
-                new Airplane(500, 1, "Fuji", 11, new TimeSpan(0, 0, 15)),
-                new Airplane(3000, 15, "3Xtrim", 12, new TimeSpan(0, 0, 25)),
-                new Airplane(3000, 20, "Folland", 13, new TimeSpan(0, 0, 50)),
-                new Airplane(6000, 30, "Eclipse", 14, new TimeSpan(0, 0, 50)),
-                new Airplane(200, 5, "Eclipse", 15, new TimeSpan(0, 0, 50)),
-                new Airplane(1000, 20, "3Xtrim", 16, new TimeSpan(0, 0, 50)),
-                new Airplane(3000, 50, "3Xtrim", 17, new TimeSpan(0, 0, 20)),
+                new Airplane(5615, 50, "3Xtrim", 9, new TimeSpan(0, 0, 5)),
+                new Airplane(2150, 10, "Gloster‎", 10, new TimeSpan(0, 0, 30)),
+                new Airplane(28, 1, "Fuji", 11, new TimeSpan(0, 0, 50)),
+                new Airplane(6552, 15, "Bloch", 12, new TimeSpan(0, 0, 8)),
+                new Airplane(2156, 8, "Folland", 13, new TimeSpan(0, 0, 50)),
+                new Airplane(6000, 30, "Eclipse", 14, new TimeSpan(0, 0, 25)),
+                new Airplane(200, 5, "Avia", 15, new TimeSpan(0, 0, 180)),
+                new Airplane(1000, 10, "3Xtrim", 16, new TimeSpan(0, 0, 45)),
+                new Airplane(8000, 100, "Bell", 17, new TimeSpan(0, 0, 12)),
                 new Airplane(3001, 10, "Gloster", 18, new TimeSpan(0, 0, 10)),
-                new Airplane(500, 1, "Fuji‎", 19, new TimeSpan(0, 0, 15)),
+                new Airplane(229, 1, "Fuji‎", 19, new TimeSpan(0, 0, 15)),
                 new Airplane(3000, 15, "3Xtrim", 20, new TimeSpan(0, 0, 25)),
-                new Airplane(3000, 20, "Folland", 21, new TimeSpan(0, 0, 50)),
-                new Airplane(6000, 30, "Eclipse", 22, new TimeSpan(0, 0, 50)),
-                new Airplane(200, 5, "Eclipse", 23, new TimeSpan(0, 0, 50)),
-                new Airplane(1000, 20, "3Xtrim", 24, new TimeSpan(0, 0, 50))
+                new Airplane(2800, 20, "Folland", 21, new TimeSpan(0, 0, 30)),
+                new Airplane(235, 30, "Bloch", 22, new TimeSpan(0, 0, 22)),
+                new Airplane(200, 5, "Bloch", 23, new TimeSpan(0, 0, 15)),
+                new Airplane(225, 20, "3Xtrim", 24, new TimeSpan(0, 0, 37))
             };
         }
     }

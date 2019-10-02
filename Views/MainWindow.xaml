@@ -66,7 +66,9 @@
         <Button Style="{StaticResource ButtonStyle}" Margin="10" Grid.Column="2" Grid.Row="3" Command="{Binding AddAirplanesCommand}">
             Добавить самолёт
         </Button>
-
+        <!--<Button Style="{StaticResource ButtonStyle1}" Margin="5, 10" Grid.Column="1" Grid.Row="3" Command="{Binding StatisticCommand}">
+            Статистика
+        </Button>-->
 
         <!--Список самолётов небе-->
         <ListView Grid.Column="0" Grid.Row="1" Background="#FFFFFF" Name="listView"
@@ -93,7 +95,6 @@
                   AlternationCount="2">
             <ListView.View>
                 <GridView ColumnHeaderContainerStyle="{StaticResource HeaderStyle}">
-                    <GridViewColumn DisplayMemberBinding="{Binding Path=Count}">№</GridViewColumn>
                     <GridViewColumn DisplayMemberBinding="{Binding Path=Company}">Название</GridViewColumn>
                     <GridViewColumn DisplayMemberBinding="{Binding Path=Number}">Бортовой номер</GridViewColumn>
                     <GridViewColumn DisplayMemberBinding="{Binding Path=Time, UpdateSourceTrigger=PropertyChanged}">Время до окончания посадки</GridViewColumn>
